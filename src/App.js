@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ListCharacters } from './components'
+import { StyledApp, PaginationControls } from './components/styles'
+import { useRickAndMorty } from './context/RickAndMortyProvider';
 
 function App() {
+  const { state: { current_characters, info: { prev, next } }, goBack, goNext } = useRickAndMorty()
+  const PrevPage = !!prev
+  const NextPage = !!next
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <StyledApp>
+      <ListCharacters
+        listOfCharacters={current_characters}
+      />
+    {current_characters.length ?
+        <PaginationControls>
+          <button disabled={!PrevPage} onClick={goBack} >Back</button>
+          <button disabled={!NextPage} onClick={goNext} >Next</button>
+        </PaginationControls> : ''}
+    </StyledApp>
+  )
 }
 
-export default App;
+export default App

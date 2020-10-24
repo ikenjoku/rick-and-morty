@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { GlobalStyle } from './GlobalStyle'
+import { RickAndMortyProvider } from './context/RickAndMortyProvider'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RickAndMortyProvider>
+      <GlobalStyle />
+      <App />
+    </RickAndMortyProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
