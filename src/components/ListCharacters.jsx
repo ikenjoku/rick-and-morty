@@ -5,7 +5,7 @@ export default function ListCharacters({ listOfCharacters }) {
   return (
     <>
       { listOfCharacters.length ? (
-        listOfCharacters.map(character => <Character key={character.name} character={character} />)
+        listOfCharacters.map((character, i) => <Character key={`${character.name}-${i}`} character={character} />)
       ) : '' }
     </>
   )

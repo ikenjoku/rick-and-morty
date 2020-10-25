@@ -1,12 +1,15 @@
 import React from 'react';
-import { ListCharacters } from './components'
-import { StyledApp, PaginationControls, Headers, ListContainer, CardWrapper } from './components/styles'
+import { ListCharacters, Footer } from './components'
+import {
+  Headers,
+  StyledApp,
+  CardWrapper,
+  ListContainer,
+} from './components/styles'
 import { useRickAndMorty } from './context/RickAndMortyProvider';
 
 function App() {
-  const { state: { current_characters, info: { prev, next } }, goBack, goNext } = useRickAndMorty()
-  const PrevPage = !!prev
-  const NextPage = !!next
+  const { state: { current_characters }} = useRickAndMorty()
 
   return (
     <StyledApp>
@@ -20,11 +23,7 @@ function App() {
           />
         </CardWrapper>
       </ListContainer>
-      {current_characters.length ?
-        <PaginationControls>
-          <button disabled={!PrevPage} onClick={goBack} >Back</button>
-          <button disabled={!NextPage} onClick={goNext} >Next</button>
-        </PaginationControls> : ''}
+      <Footer />
       </StyledApp>
   )
 }

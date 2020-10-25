@@ -46,27 +46,7 @@ export const CardBox = styled.div`
    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 `
 
-export const PaginationControls = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  button {
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px 15px;
-    border-radius: 5px;
-    outline: none;
-    font-weight: 600;
-    background-color: #595a59;
-    color: white;
-  }
-
-  button:disabled {
-    color: grey;
-    background-color: grey;
-  }
-`
 
 export const ImageWrapper = styled.div`
   flex: 2 1 0%;
@@ -81,6 +61,12 @@ export const DetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    }
 `
 
 export const CharacterImage = styled.img`
@@ -127,6 +113,10 @@ export const Info = styled.span`
   font-weight: 900;
 `
 
+export const Author = styled.span`
+  padding-top: 4.5rem;
+`
+
 export const StatusIndicator = styled.span`
   height: 18px;
   width: 18px;
@@ -142,4 +132,47 @@ export const StatusIndicator = styled.span`
       return 'grey'
     }
   }};
+`
+
+export const StyledFooter = styled.footer`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    position: relative;
+    background: rgb(32, 35, 41);
+    color: rgb(158, 158, 158);
+    padding: 4.5rem 0px;
+    min-height: calc(120px);
+    width: 100%;
+`
+
+export const PaginationControls = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  button {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 600;
+    background-color: #595a59;
+    color: white;
+  }
+
+  button:disabled {
+    color: grey;
+    background-color: grey;
+  }
+`
+
+export const PageNumberInput = styled.input`
+    width: 60px;
+    padding: 10px;
+    margin-left: 10px;
+
 `
