@@ -61,32 +61,22 @@ const RickAndMortyProvider = (props) => {
 
   const fetchCharacters = async (page) => {
     try {
-      //get characers
       const response = await axios.get(`${BASE_URL}/character?page=${page || 1}`)
       const  { info, results } = response.data
-      console.log('fetching')
-      console.log('info', info)
-      console.log('results', results)
       dispatch({ type: FETCHED_CHARACTER, payload: { info, results } })
     } catch (error) {
-      // error
-      console.log('error')
+      console.error('error')
       dispatch({ type: ERROR_FETCHING_CHARACTER })
     }
   }
 
   const fetchCharactersByUrl = async (url) => {
     try {
-      //get characers
       const response = await axios.get(url)
       const  { info, results } = response.data
-      console.log('fetching')
-      console.log('info', info)
-      console.log('results', results)
       dispatch({ type: FETCHED_CHARACTER, payload: { info, results } })
     } catch (error) {
-      // error
-      console.log('error')
+      console.error('error')
       dispatch({ type: ERROR_FETCHING_CHARACTER })
     }
   }
