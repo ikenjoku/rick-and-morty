@@ -11,6 +11,7 @@ import {
   CharacterImage,
   StatusIndicator,
 } from './styles'
+
 export default function Character({ character }) {
   const { name, status, location, origin, image, episode, species, gender } = character
   const [locationData, setLocationData] = useState({})

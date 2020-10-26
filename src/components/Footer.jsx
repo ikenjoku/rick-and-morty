@@ -16,7 +16,12 @@ function Footer () {
       goToPage(selectPage)
     }
   }
-  const { state: { current_characters, info: { prev, next, pages } }, goBack, goNext, goToPage } = useRickAndMorty()
+  const { state: { current_characters, info: { prev, next, pages } },
+    goBack,
+    goNext,
+    goToPage
+  } = useRickAndMorty()
+
   const PrevPage = !!prev
   const NextPage = !!next
 
@@ -43,7 +48,10 @@ function Footer () {
         <PaginationControls>
           <span>Go to Page</span>
           <form>
-          <PageNumberInput value={selectPage} onChange={(e) => setSelectPage(e.target.value)} type={'number'} max={pages} />
+          <PageNumberInput
+            value={selectPage}
+            onChange={(e) => setSelectPage(e.target.value)} type={'number'} max={pages}
+          />
           <button onClick={handleGoToPage}>Go</button>
           </form>
         </PaginationControls>

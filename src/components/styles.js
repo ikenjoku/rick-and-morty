@@ -15,6 +15,11 @@ export const Headers = styled.div`
   &> h1 {
     font-size: 4rem;
   }
+  @media (max-width: 650px) {
+    &> h1 {
+    font-size: 3rem;
+  }
+  }
 `
 
 export const ListContainer = styled.div`
@@ -45,6 +50,12 @@ export const CardBox = styled.div`
   margin: 0.75rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+   @media (max-width: 650px) {
+    flex-direction: column;
+    height: initial;
+    width: 100%;
+  }
 `
 
 
@@ -77,9 +88,7 @@ export const CharacterImage = styled.img`
   transition: opacity 0.5s ease 0s;
   object-position: center center;
   object-fit: cover;
-
   display: block;
-
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;
@@ -191,6 +200,7 @@ export const Button = styled.button`
   z-index: 100;
   outline: none;
 `
+
 export const Icon = styled.span`
   font-size: 24px;
   color: #587b58;
