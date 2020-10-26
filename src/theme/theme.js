@@ -8,10 +8,10 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  body: 'rgb(32, 35, 41)',
-  text: '#FAFAFA',
-  footerColor: 'rgb(158, 158, 158)',
-  footerButton: 'rgb(158, 158, 158)',
-  cardBoxBackground: 'rgb(60, 62, 68)',
-  listContainerBackground: 'rgb(36, 40, 47)',
+  body: '#202329',
+  text: '#fafafa',
+  footerColor: '#9e9e9e',
+  footerButton: '#9e9e9e',
+  cardBoxBackground: '#3c3e44',
+  listContainerBackground: '#24282f',
 }
