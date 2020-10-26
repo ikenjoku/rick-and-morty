@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { BASE_URL } from '../utils'
 import {
   Info,
   More,
@@ -12,16 +13,16 @@ import {
 } from './styles'
 export default function Character({ character }) {
   const { name, status, location, origin, image, episode, species, gender } = character
-  const [locationData, setLocationData] = React.useState({})
-  const [originData, setOriginData] = React.useState({})
-  const [episodeData, setEpisodeData] = React.useState([])
+  const [locationData, setLocationData] = useState({})
+  const [originData, setOriginData] = useState({})
+  const [episodeData, setEpisodeData] = useState([])
 
-  React.useEffect(() => {
-    const fetchEpidoses = async () => {
+  useEffect(() => {
+    const fetchEpisodes = async () => {
       try {
         let episodes = episode.map(item => item.split('/')[5] )
         if (episodes.length) {
-          const episodeUrl = `https://rickandmortyapi.com/api/episode/[${episodes}]`
+          const episodeUrl = `${BASE_URL}/episode/[${episodes}]`
           const response = await axios.get(episodeUrl)
           setEpisodeData(response.data)
         }
@@ -29,10 +30,10 @@ export default function Character({ character }) {
         console.error('error fetching episode')
       }
     }
-    fetchEpidoses()
+    fetchEpisodes()
   }, [episode])
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchLocation = async () => {
       try {
         if (location.url) {
@@ -46,7 +47,7 @@ export default function Character({ character }) {
     fetchLocation()
   }, [location])
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchOrigin = async () => {
       try {
         if (origin.url) {
@@ -54,7 +55,7 @@ export default function Character({ character }) {
           setOriginData(response.data)
         }
       } catch (error) {
-        console.error('error')
+        console.error('error fetching origin')
       }
     }
     fetchOrigin()

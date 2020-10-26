@@ -22,7 +22,7 @@ export const ListContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 4.5rem 0px;
-  background: rgb(36, 40, 47);
+  background: ${({ theme }) => theme.listContainerBackground};
   min-height: calc(50vh - 60px);
 `
 
@@ -39,7 +39,8 @@ export const CardBox = styled.div`
   height: 220px;
   display: flex;
   overflow: hidden;
-  background: rgb(60, 62, 68);
+  color: ${({ theme }) => theme.text};
+  background: ${({ theme }) => theme.cardBoxBackground};
   border-radius: 0.5rem;
   margin: 0.75rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
@@ -57,7 +58,6 @@ export const DetailWrapper = styled.div`
   flex: 3 1 0%;
   position: relative;
   padding: 0.75rem;
-  color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -140,8 +140,8 @@ export const StyledFooter = styled.footer`
     align-items: center;
     flex-flow: column nowrap;
     position: relative;
-    background: rgb(32, 35, 41);
-    color: rgb(158, 158, 158);
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.footerColor};
     padding: 4.5rem 0px;
     min-height: calc(120px);
     width: 100%;
@@ -161,7 +161,7 @@ export const PaginationControls = styled.div`
     outline: none;
     font-weight: 600;
     background-color: #595a59;
-    color: white;
+    color: ${({ theme }) => theme.footerButton};
   }
 
   button:disabled {
@@ -175,4 +175,23 @@ export const PageNumberInput = styled.input`
     padding: 10px;
     margin-left: 10px;
 
+`
+
+export const Button = styled.button`
+  background: ${({ theme }) => theme.background};
+  border: 2px solid ${({ theme }) => theme.toggleBorder};
+  color: ${({ theme }) => theme.text};
+  border-radius: 30px;
+  cursor: pointer;
+  font-size:0.8rem;
+  padding: 0.6rem;
+  position: absolute;
+  top: 7px;
+  right: 1em;
+  z-index: 100;
+  outline: none;
+`
+export const Icon = styled.span`
+  font-size: 24px;
+  color: #587b58;
 `

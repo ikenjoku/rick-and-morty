@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
+
 export const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     box-sizing: border-box;
@@ -14,6 +15,8 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: 100vh;
+    color: ${({ theme }) => theme.text};
+    background-color:${({ theme }) => theme.body};
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

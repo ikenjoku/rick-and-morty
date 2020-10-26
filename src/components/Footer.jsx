@@ -12,7 +12,9 @@ function Footer () {
   const [selectPage, setSelectPage] = useState(1)
   const handleGoToPage = (e) => {
     e.preventDefault()
-    goToPage(selectPage)
+    if (selectPage <= pages) {
+      goToPage(selectPage)
+    }
   }
   const { state: { current_characters, info: { prev, next, pages } }, goBack, goNext, goToPage } = useRickAndMorty()
   const PrevPage = !!prev

@@ -1,20 +1,37 @@
-import React from 'react';
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
 import { ListCharacters, Footer } from './components'
 import {
+  Icon,
+  Button,
   Headers,
-  StyledApp,
   CardWrapper,
   ListContainer,
 } from './components/styles'
+import { darkTheme, lightTheme } from './theme'
+import { useAppTheme } from './hooks'
+import { LIGHT } from './utils'
 import { useRickAndMorty } from './context/RickAndMortyProvider';
+import { GlobalStyle } from './theme'
 
-function App() {
+export default function App() {
   const { state: { current_characters }} = useRickAndMorty()
+  const [theme, toggleTheme, mountedComponent] = useAppTheme()
+  const currentTheme = theme === LIGHT ? lightTheme : darkTheme
+
+  if(!mountedComponent) return <div/>
 
   return (
-    <StyledApp>
+    <ThemeProvider toggleTheme={toggleTheme} theme={currentTheme}>
+      <Button theme={theme} onClick={toggleTheme}>
+        <Icon>
+          {theme === LIGHT ?
+            <i className="fas fa-lightbulb"></i>
+            : <i className="far fa-lightbulb"></i>}
+        </Icon>
+      </Button>
       <Headers>
-        <h1>The Rick and Morty API</h1>
+        <h1>The Rick and Morty Characters</h1>
       </Headers>
       <ListContainer>
         <CardWrapper>
@@ -24,8 +41,10 @@ function App() {
         </CardWrapper>
       </ListContainer>
       <Footer />
-      </StyledApp>
+      <GlobalStyle />
+    </ThemeProvider>
   )
 }
 
-export default App
+
+
